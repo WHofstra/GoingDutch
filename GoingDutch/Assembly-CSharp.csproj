@@ -58,8 +58,9 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\IslandEditing\PlaceableAsset.cs" />
     <Compile Include="Assets\Scripts\DocumentObjects\DocumentObject.cs" />
-    <Compile Include="Assets\Scripts\DocumentObjects\Land.cs" />
     <Compile Include="Assets\Scripts\ConversionClasses\VariableTypeConverter.cs" />
+    <Compile Include="Assets\Scripts\DocumentObjects\Land.cs" />
+    <Compile Include="Assets\Scripts\IslandEditing\DraggableObject.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -283,6 +284,12 @@
     </Reference>
     <Reference Include="UnityEditor.UnityConnectModule">
       <HintPath>F:\Unity\Editor\2020.3.30f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+      <HintPath>F:\Unity\Editor\2020.3.30f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Common">
+      <HintPath>F:\Unity\Editor\2020.3.30f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Common.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>F:\Unity\Editor\2020.3.30f1\Editor\Data\NetStandard\ref\2.0.0\netstandard.dll</HintPath>

@@ -12,9 +12,4 @@ public class PlaceableAsset : MonoBehaviour
     // Getters and setters
     public string ID { get { return id; } }
     public int Value { get { return _value; } }
-
-    // When player drags PlaceableAsset
-    public void OnMouseDrag(){
-        Debug.Log(Value);
-    }
 }
