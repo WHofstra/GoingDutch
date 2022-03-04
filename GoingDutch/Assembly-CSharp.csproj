@@ -56,11 +56,13 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\IslandEditing\TileMap.cs" />
     <Compile Include="Assets\Scripts\IslandEditing\PlaceableAsset.cs" />
     <Compile Include="Assets\Scripts\DocumentObjects\DocumentObject.cs" />
+    <Compile Include="Assets\Scripts\IslandEditing\GridClippingObject.cs" />
+    <Compile Include="Assets\Scripts\IslandEditing\DraggableObject.cs" />
     <Compile Include="Assets\Scripts\ConversionClasses\VariableTypeConverter.cs" />
     <Compile Include="Assets\Scripts\DocumentObjects\Land.cs" />
-    <Compile Include="Assets\Scripts\IslandEditing\DraggableObject.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

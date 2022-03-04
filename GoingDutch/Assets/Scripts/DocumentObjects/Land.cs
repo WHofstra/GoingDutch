@@ -6,7 +6,7 @@ public class Land : MonoBehaviour,
     DocumentObject
 {
     // Use SerializeField to pass constructor parameters
-    [SerializeField] private string _name;
+    // [SerializeField] private string _name = "";
     
     private string id;
     private List<PlaceableAsset> assets;

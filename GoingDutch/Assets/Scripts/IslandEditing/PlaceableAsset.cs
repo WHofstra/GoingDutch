@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlaceableAsset : MonoBehaviour
 {
     // Use SerializeField to pass constructor parameters
-    [SerializeField] private int _value;
+    [SerializeField] private int _value = 0;
 
     private string id;
 
