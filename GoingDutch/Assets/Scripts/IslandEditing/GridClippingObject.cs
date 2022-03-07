@@ -7,6 +7,7 @@ public class GridClippingObject : MonoBehaviour
 {
     // Constant variables
     private const int MINIMUM_COLLIDING_OBJ = 0;
+    private const int TILEMAP_Z_AXIS        = 0;
 
     // Use SerializeField to pass constructor parameters
     [SerializeField] private DraggableObject _draggableObject;
@@ -35,26 +36,45 @@ public class GridClippingObject : MonoBehaviour
     }
 
     public void OnTriggerEnter2D(Collider2D collision){
+        // Add to amount of objects it comes in contact with
         if (collision.gameObject.layer.Equals(ConstantVariables.Layer.placebleAsset)){
-            objectsItCollidesWith = checkAmountOfObjects(objectsItCollidesWith);
+            objectsItCollidesWith = CheckAmountOfObjects(objectsItCollidesWith);
             objectsItCollidesWith++;
         }
     }
 
     public void OnTriggerExit2D(Collider2D collision){
+        // Subtract from amount of objects it comes in contact with
         if (collision.gameObject.layer.Equals(ConstantVariables.Layer.placebleAsset)){
             objectsItCollidesWith--;
-            objectsItCollidesWith = checkAmountOfObjects(objectsItCollidesWith);
+            objectsItCollidesWith = CheckAmountOfObjects(objectsItCollidesWith);
         }
+    }
+
+    // Override this function with a 'true' return to allow for water placement
+    protected bool DoesTileExist(Vector3Int coordinates){
+        if (_tileMap != null &&
+            _tileMap.GetTile(coordinates) != null)
+            return true;
+        return false;
     }
 
     private void CheckTile(){
         // It checks the tile beneath the sprite
         if (_tileMap != null &&
-            checkAmountOfObjects(objectsItCollidesWith).Equals(MINIMUM_COLLIDING_OBJ))
+            CheckAmountOfObjects(objectsItCollidesWith).Equals(MINIMUM_COLLIDING_OBJ))
         {
             Vector3Int cellPosition  = _tileMap.WorldToCell(parentTransform.position);
-            parentTransform.position = _tileMap.GetCellCenterLocal(cellPosition);
+
+            // Keep the z-axis the same value
+            if (DoesTileExist(new Vector3Int(cellPosition.x, cellPosition.y, TILEMAP_Z_AXIS)))
+            {
+                Vector3 objectCenter = _tileMap.GetCellCenterWorld(cellPosition);
+                Vector3 newPosition = new Vector3(objectCenter.x, objectCenter.y, parentTransform.position.z);
+                parentTransform.position = newPosition;
+            }
+            else
+                parentTransform.position = currentPosition;
         }
         else
             parentTransform.position = currentPosition;
@@ -64,7 +84,7 @@ public class GridClippingObject : MonoBehaviour
         currentPosition = parentTransform.position;
     }
 
-    private static int checkAmountOfObjects(int amount){
+    private static int CheckAmountOfObjects(int amount){
         // Prevent it from reaching below zero
         if (amount < MINIMUM_COLLIDING_OBJ)
             amount = MINIMUM_COLLIDING_OBJ;
