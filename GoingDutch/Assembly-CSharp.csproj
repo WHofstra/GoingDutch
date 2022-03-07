@@ -62,6 +62,7 @@
     <Compile Include="Assets\Scripts\IslandEditing\DraggableObject.cs" />
     <Compile Include="Assets\Scripts\StaticFunctions\VariableTypeConverter.cs" />
     <Compile Include="Assets\Scripts\DocumentObjects\Land.cs" />
+    <Compile Include="Assets\Scripts\StaticFunctions\ConstantVariables.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

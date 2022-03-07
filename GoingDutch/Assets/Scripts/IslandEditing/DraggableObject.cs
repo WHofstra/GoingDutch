@@ -7,6 +7,7 @@ public class DraggableObject : MonoBehaviour
     // Delegates
     public delegate void GridClippingDelegate();
     public GridClippingDelegate checkTile;
+    public GridClippingDelegate savePosition;
 
     private Transform parentTransform;
 
@@ -20,6 +21,11 @@ public class DraggableObject : MonoBehaviour
         Vector3 newPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         newPos.z = parentTransform.position.z;
         parentTransform.position = newPos;
+    }
+
+    public void OnMouseDown(){
+        // On the moment the user starts dragging this
+        savePosition();
     }
 
     public void OnMouseUp(){
