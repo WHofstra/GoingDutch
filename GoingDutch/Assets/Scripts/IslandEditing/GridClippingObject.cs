@@ -54,8 +54,7 @@ public class GridClippingObject : MonoBehaviour
             checkAmountOfObjects(objectsItCollidesWith).Equals(MINIMUM_COLLIDING_OBJ))
         {
             Vector3Int cellPosition  = _tileMap.WorldToCell(parentTransform.position);
-            parentTransform.position = _tileMap.CellToWorld(cellPosition);
-            parentTransform.position += new Vector3(0, _tileMap.cellSize.y * 0.5f, 0);
+            parentTransform.position = _tileMap.GetCellCenterLocal(cellPosition);
         }
         else
             parentTransform.position = currentPosition;
