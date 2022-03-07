@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class ConstantVariables
 {
-    public static class Layer{
+    public static class Layer {
         public const int defaultLayer  = 0;
         public const int transparentFX = 1;
         public const int ignoreRaycast = 2;

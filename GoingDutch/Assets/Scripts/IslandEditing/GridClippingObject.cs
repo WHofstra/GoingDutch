@@ -18,19 +18,25 @@ public class GridClippingObject : MonoBehaviour
 
     public void Awake(){
         if (_draggableObject != null){
-            _draggableObject.checkTile    += CheckTile;
+            _draggableObject.checkTile += CheckTile;
             _draggableObject.savePosition += SavePosition;
         }
+    }
 
-        parentTransform = (transform.parent != null) ?
-            transform.parent.GetComponent<Transform>() : transform;
-        currentPosition       = parentTransform.position;
+    public void Start(){
+        parentTransform =
+           (_draggableObject != null &&
+            _draggableObject.ParentTransform != null) ?
+            _draggableObject.ParentTransform :
+            transform;
+
+        currentPosition = parentTransform.position;
         objectsItCollidesWith = 0;
     }
 
     public void OnTriggerEnter2D(Collider2D collision){
         if (collision.gameObject.layer.Equals(ConstantVariables.Layer.placebleAsset)){
-            checkAmountOfObjects(objectsItCollidesWith);
+            objectsItCollidesWith = checkAmountOfObjects(objectsItCollidesWith);
             objectsItCollidesWith++;
         }
     }
@@ -38,7 +44,7 @@ public class GridClippingObject : MonoBehaviour
     public void OnTriggerExit2D(Collider2D collision){
         if (collision.gameObject.layer.Equals(ConstantVariables.Layer.placebleAsset)){
             objectsItCollidesWith--;
-            checkAmountOfObjects(objectsItCollidesWith);
+            objectsItCollidesWith = checkAmountOfObjects(objectsItCollidesWith);
         }
     }
 
@@ -47,7 +53,7 @@ public class GridClippingObject : MonoBehaviour
         if (_tileMap != null &&
             checkAmountOfObjects(objectsItCollidesWith).Equals(MINIMUM_COLLIDING_OBJ))
         {
-            Vector3Int cellPosition = _tileMap.WorldToCell(parentTransform.position);
+            Vector3Int cellPosition  = _tileMap.WorldToCell(parentTransform.position);
             parentTransform.position = _tileMap.CellToWorld(cellPosition);
             parentTransform.position += new Vector3(0, _tileMap.cellSize.y * 0.5f, 0);
         }
@@ -60,6 +66,7 @@ public class GridClippingObject : MonoBehaviour
     }
 
     private static int checkAmountOfObjects(int amount){
+        // Prevent it from reaching below zero
         if (amount < MINIMUM_COLLIDING_OBJ)
             amount = MINIMUM_COLLIDING_OBJ;
         return amount;

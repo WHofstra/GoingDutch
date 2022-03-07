@@ -11,6 +11,9 @@ public class DraggableObject : MonoBehaviour
 
     private Transform parentTransform;
 
+    // Getters and setters
+    public Transform ParentTransform { get { return parentTransform; } }
+
     public void Awake(){
         parentTransform = (transform.parent != null) ?
             transform.parent.GetComponent<Transform>() : transform;
