@@ -22,12 +22,7 @@ public class GridClippingObject : MonoBehaviour
         // It checks the tile beneath the sprite
         Vector3Int cellPosition = _tileMap.WorldToCell(parentTransform.position);
 
-        // if (_tileMap.HasTile(cellPosition)){
-            parentTransform.position = _tileMap.CellToWorld(cellPosition);
-            parentTransform.position += new Vector3(0, _tileMap.cellSize.y * 0.5f, 0);
-        // }
-        // else {
-        //     Debug.Log(cellPosition);
-        // }
+        parentTransform.position = _tileMap.CellToWorld(cellPosition);
+        parentTransform.position += new Vector3(0, _tileMap.cellSize.y * 0.5f, 0);
     }
 }
