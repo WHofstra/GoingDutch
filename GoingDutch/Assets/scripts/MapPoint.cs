@@ -10,10 +10,14 @@ public class MapPoint : MonoBehaviour
     [SerializeField] public GameObject pointTop;
     [SerializeField] public bool trackDistance = false;
     [SerializeField] public MapPoint tracker;
+    [SerializeField] public string sightName;
+    [SerializeField] public SightInfoTab infoTab;
     private Vector2 bottomCoord = new Vector2(50.62853391914265f, 3.073552403615819f);
     private Vector2 topCoord = new Vector2(53.73164920488342f, 7.261044644070169f);
     private float mapHeight;
     private float mapWidth;
+    private float disToPlayer = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,13 +30,12 @@ public class MapPoint : MonoBehaviour
         {
             Coordinate trackCoord = new Coordinate(tracker.latitude, tracker.longitude);
             Coordinate myPos = new Coordinate(latitude, longitude);
-            Debug.Log(Coordinate.CalcDistanceBetweenTwoCoordinates(myPos, trackCoord));
+            disToPlayer = Coordinate.CalcDistanceBetweenTwoCoordinates(myPos, trackCoord);
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnMouseDown()
     {
-        
+        infoTab.PopUp(sightName, disToPlayer);
     }
 }
