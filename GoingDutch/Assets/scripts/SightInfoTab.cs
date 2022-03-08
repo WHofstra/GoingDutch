@@ -21,12 +21,8 @@ public class SightInfoTab : MonoBehaviour
         }
         gameObject.SetActive(true);
     }
-
-    public void Update()
+    public void close()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            gameObject.SetActive(false);
-        }
+        gameObject.SetActive(false);
     }
 }
