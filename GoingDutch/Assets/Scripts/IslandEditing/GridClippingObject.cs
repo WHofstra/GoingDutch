@@ -65,12 +65,11 @@ public class GridClippingObject : MonoBehaviour
             CheckAmountOfObjects(objectsItCollidesWith).Equals(MINIMUM_COLLIDING_OBJ))
         {
             Vector3Int cellPosition  = _tileMap.WorldToCell(parentTransform.position);
-
-            // Keep the z-axis the same value
             if (DoesTileExist(new Vector3Int(cellPosition.x, cellPosition.y, TILEMAP_Z_AXIS)))
             {
+                // Keep the z-axis the same value
                 Vector3 objectCenter = _tileMap.GetCellCenterWorld(cellPosition);
-                Vector3 newPosition = new Vector3(objectCenter.x, objectCenter.y, parentTransform.position.z);
+                Vector3 newPosition  = new Vector3(objectCenter.x, objectCenter.y, parentTransform.position.z);
                 parentTransform.position = newPosition;
             }
             else
