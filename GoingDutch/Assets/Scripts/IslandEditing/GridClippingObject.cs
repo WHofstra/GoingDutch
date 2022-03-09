@@ -14,6 +14,7 @@ public class GridClippingObject : MonoBehaviour
     [SerializeField] private Tilemap _tileMap;
 
     private Transform parentTransform;
+    private SpriteRenderer spriteRenderer;
     private Vector3 currentPosition;
     private int objectsItCollidesWith;
 
@@ -25,11 +26,14 @@ public class GridClippingObject : MonoBehaviour
     }
 
     public void Start(){
-        parentTransform =
-           (_draggableObject != null &&
-            _draggableObject.ParentTransform != null) ?
-            _draggableObject.ParentTransform :
-            transform;
+        if (_draggableObject != null){
+            parentTransform = (_draggableObject.ParentTransform != null) ?
+                _draggableObject.ParentTransform : transform;
+            spriteRenderer = (_draggableObject.SpriteRenderer != null) ?
+                _draggableObject.SpriteRenderer : null;
+        }
+        else
+            parentTransform = transform;
 
         currentPosition = parentTransform.position;
         objectsItCollidesWith = 0;
@@ -71,6 +75,10 @@ public class GridClippingObject : MonoBehaviour
                 Vector3 objectCenter = _tileMap.GetCellCenterWorld(cellPosition);
                 Vector3 newPosition  = new Vector3(objectCenter.x, objectCenter.y, parentTransform.position.z);
                 parentTransform.position = newPosition;
+
+                // Sprite layer order based on position
+                if (spriteRenderer != null)
+                    spriteRenderer.sortingOrder = -(cellPosition.x + cellPosition.y + cellPosition.z);
             }
             else
                 parentTransform.position = currentPosition;
