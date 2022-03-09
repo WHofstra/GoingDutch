@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TestPlaceholderTile02
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: 21300000, guid: bc3522b96894e9a4189f6821c2d21220, type: 3}
-  m_Color: {r: 0.8627451, g: 0.6392157, b: 0.3764706, a: 1}
+  m_Color: {r: 0.8396226, g: 0.83780205, b: 0.8356621, a: 1}
   m_Transform:
     e00: 1
     e01: 0
