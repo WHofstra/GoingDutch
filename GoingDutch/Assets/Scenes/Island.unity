@@ -140,11 +140,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7721800556404592686, guid: 739b3bc5721c32745ba9aaa3e73aa42f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.5
+      value: -1.65
       objectReference: {fileID: 0}
     - target: {fileID: 7721800556404592686, guid: 739b3bc5721c32745ba9aaa3e73aa42f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 7721800556404592686, guid: 739b3bc5721c32745ba9aaa3e73aa42f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -206,11 +206,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7721800556404592686, guid: 739b3bc5721c32745ba9aaa3e73aa42f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.55
       objectReference: {fileID: 0}
     - target: {fileID: 7721800556404592686, guid: 739b3bc5721c32745ba9aaa3e73aa42f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.75
+      value: -0.63
       objectReference: {fileID: 0}
     - target: {fileID: 7721800556404592686, guid: 739b3bc5721c32745ba9aaa3e73aa42f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1083,7 +1083,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -900
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.060833335, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -5105,11 +5105,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7721800556404592686, guid: 739b3bc5721c32745ba9aaa3e73aa42f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1
+      value: 0.55
       objectReference: {fileID: 0}
     - target: {fileID: 7721800556404592686, guid: 739b3bc5721c32745ba9aaa3e73aa42f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.75
+      value: -0.63
       objectReference: {fileID: 0}
     - target: {fileID: 7721800556404592686, guid: 739b3bc5721c32745ba9aaa3e73aa42f, type: 3}
       propertyPath: m_LocalPosition.z
