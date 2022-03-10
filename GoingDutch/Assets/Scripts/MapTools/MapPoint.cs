@@ -13,6 +13,7 @@ public class MapPoint : MonoBehaviour
     [SerializeField] public string sightName;
     [SerializeField] public SightInfoTab infoTab;
     [SerializeField] public GameObject rewardButton;
+    [SerializeField] public Sprite image;
     private Vector2 bottomCoord = new Vector2(50.62853391914265f, 3.073552403615819f);
     private Vector2 topCoord = new Vector2(53.73164920488342f, 7.261044644070169f);
     private float mapHeight;
@@ -41,6 +42,6 @@ public class MapPoint : MonoBehaviour
 
     private void OnMouseDown()
     {
-        infoTab.PopUp(sightName, disToPlayer);
+        infoTab.PopUp(sightName, disToPlayer,image);
     }
 }

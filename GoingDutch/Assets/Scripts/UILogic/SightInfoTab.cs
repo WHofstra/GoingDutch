@@ -8,12 +8,15 @@ public class SightInfoTab : MonoBehaviour
 {
     [SerializeField] public TextMeshProUGUI sightName;
     [SerializeField] public TextMeshProUGUI distance;
+    [SerializeField] public GameObject rewardImage;
 
-    public void PopUp(string place, float dis)
+    public void PopUp(string place, float dis, Sprite image)
     {
         sightName.text = place;
         distance.text = dis.ToString("F1") + "km";
-        if(dis < 1)
+        rewardImage.GetComponent<Image>().sprite = image;
+        rewardImage.GetComponent<Image>()
+        if (dis < 1)
         {
             dis = dis * 1000;
             dis = Mathf.Round(dis);
