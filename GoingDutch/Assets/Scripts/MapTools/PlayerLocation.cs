@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class PlayerLocation : MonoBehaviour
 {
-    IEnumerator Start()
+    private void Start()
+    {
+        StartCoroutine(GetGPS());
+    }
+    private IEnumerator GetGPS()
     {
         Debug.Log("Start Location Service");
         // Check if the user has location service enabled.
